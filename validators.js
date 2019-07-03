@@ -1,5 +1,7 @@
-function validarCPF(cpf) {	
-      // source: https://www.geradorcpf.com/javascript-validar-cpf.htm
+// source: https://www.geradorcpf.com/javascript-validar-cpf.htm
+// source: https://www.geradorcpf.com/javascript-validar-cpf.htm
+
+function validarCPF(cpf) {
 	cpf = cpf.replace(/[^\d]+/g,'');	
 	if(cpf == '') return false;	
 	// Elimina CPFs invalidos conhecidos	
@@ -36,7 +38,6 @@ function validarCPF(cpf) {
 	return true;   
 }
 function validarCNPJ(cnpj) {
- // source: https://www.geradorcpf.com/javascript-validar-cpf.htm
     cnpj = cnpj.replace(/[^\d]+/g,'');
  
     if(cnpj == '') return false;
