@@ -1,0 +1,29 @@
+<html>
+  <head>  
+    <style>
+      p::after {
+          /* Set content to be an attribute on the element */
+          content: attr(data-value);
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Update CSS ::after content using javascript</h3>
+    <p>Value: </p>
+    
+    <script>
+      var p = document.querySelectorAll('p')[0];
+      var c = 0;
+
+      setInterval(function () {
+          c++;
+
+          // Update the attribute using javascript
+          p.setAttribute('data-value', c);
+
+      }, 1000);
+    </script>
+  </body>
+</html>
+
+<!-- Source: http://jsfiddle.net/uq7ud/ -->
