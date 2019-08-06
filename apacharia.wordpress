@@ -1,0 +1,5 @@
+1 - UPDATE wp_posts SET guid = REPLACE(guid, 'oldurl.com', 'newurl.com') WHERE guid LIKE 'http://oldurl.com/%';
+2 - sudo a2enmod rewrite
+3 - sudo systemctl restart apache2
+
+source: https://wordpress.stackexchange.com/questions/211156/how-to-change-all-the-guid-in-posts-table
