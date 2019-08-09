@@ -6,21 +6,37 @@ httpRequestDebugger(xhr);
 xhr.send();
 
 function httpRequestDebugger(xhr){
-      xhr.addEventListener("progress", updateProgress);
-      xhr.addEventListener("load", transferComplete);
+      xhr.addEventListener("load", transferLoading);
       xhr.addEventListener("error", transferFailed);
       xhr.addEventListener("abort", transferCanceled);
-      function updateProgress (oEvent) {
-          if (oEvent.lengthComputable) {
-          var percentComplete = oEvent.loaded / oEvent.total * 100;
-          console.log(oEvent);
-          console.log(percentComplete);
-          } else {
-          console.log(oEvent);
-          }
-      }
+      xhr.addEventListener("progress", updateProgress);
+      xhr.addEventListener("timeout", transferTimeout);
+      xhr.addEventListener("loadend", transferComplete);
+      xhr.addEventListener("loadstart", transferStarting);        
+      xhr.addEventListener("readystatechange", transferState); 
 
-      function transferComplete(evt) { console.log(evt); }
-      function transferFailed(evt) { console.log(evt); }
-      function transferCanceled(evt) { console.log(evt); }
-  }
+      xhr.onreadystatechange = function(){
+          if(xhr.readyState === 4 && xhr.status === 200){
+              console.log(xhr.responseText);
+          }
+      };
+
+      function updateProgress (evt) {
+          if(evt.lengthComputable){
+              var percentComplete = evt.loaded / evt.total * 100;
+              console.log(evt);
+              console.log(percentComplete);
+          }else{ console.log(evt); }
+      }
+      function transferState(evt){
+          if(evt.readyState === 4 && evt.status === 200){
+              console.log(xhr.responseText);
+          } 
+      }
+      function transferFailed(evt) { console.log(evt); }        
+      function transferTimeout(evt){ console.log(evt); }        
+      function transferStarting(evt){ console.log(evt); }
+      function transferLoading(evt) { console.log(evt); }
+      function transferComplete(evt) { console.log(evt); }        
+      function transferCanceled(evt) { console.log(evt.response); }
+}
