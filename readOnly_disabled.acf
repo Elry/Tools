@@ -1,3 +1,5 @@
+// source: https://support.advancedcustomfields.com/forums/topic/read-only-field-2/
+
 // Display acf options to read-only and disable fields
 add_action('acf/render_field_settings/type=text', 'add_readonly_and_disabled_to_text_field');
 function add_readonly_and_disabled_to_text_field($field) {
