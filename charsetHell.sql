@@ -1,8 +1,10 @@
 -- checking tables 
 SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';
 
--- simple conn
+-- local conn
 mysql -u user -p
+-- web conn
+mysql -h host -u username -p
 
 -- file && configs
 etc/mysql/my.cnf
