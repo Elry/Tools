@@ -17,3 +17,7 @@ default-character-set = utf8mb4
 character-set-client-handshake = FALSE
 character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
+
+-- apply
+service restart mysqld
+service restart mysql
