@@ -21,8 +21,8 @@ character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
 
 -- apply
-service restart mysqld
-service restart mysql
+systemctl restart mysqld
+systemctl restart mysql
 
 -- DB dumper
 mysqldump --verbose -h host -u username -p --add-drop-database --opt --skip-set-charset --default-character-set=latin1
@@ -41,3 +41,7 @@ mysql --verbose -h host -u username -p < sqlDump.sql
 
 -- check && optimize
 mysqlcheck --verbose -h host -u root -p --auto-repair --optimize --all-databases
+
+-- just alter DB
+ALTER DATABASE dbname CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
