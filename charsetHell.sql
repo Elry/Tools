@@ -33,8 +33,8 @@ mysqldump --verbose -h host -u username -p --add-drop-database --opt --skip-set-
   --skip-extended-insert databasename tablename > sqlDump.sql;
   
 -- change latin to utf8mb4
-perl -i -pe 's/DEFAULT CHARACTER SET latin1/DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci/' dump_file.sql
-perl -i -pe 's/DEFAULT CHARSET=latin1/DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC/' dump_file.sql
+perl -i -pe 's/DEFAULT CHARACTER SET latin1/DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci/' sqlDump.sql
+perl -i -pe 's/DEFAULT CHARSET=latin1/DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC/' sqlDump.sql
 
 -- restore
 mysql --verbose -h host -u username -p < sqlDump.sql
