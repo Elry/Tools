@@ -14,6 +14,6 @@ try{
    // code  
    http_response_code(200);
  }catch(Exception $e){
-   echo $e->responseText();
+   echo $e->getMessage();
    http_response_code(400);
  }
