@@ -1,3 +1,4 @@
+<?php
 // headers
 header("Access-Control-Max-Age: 300");
 header("Access-Control-Allow-Methods: GET");
@@ -17,3 +18,4 @@ try{
    echo $e->getMessage();
    http_response_code(400);
  }
+?>
