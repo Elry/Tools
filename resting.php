@@ -11,9 +11,9 @@ ini_set('display_errors', true);
 ini_set('default_charset', 'utf-8');
  
 try{
-  // code
-  http_response_code(400);
-
+   // code  
+   http_response_code(200);
  }catch(Exception $e){
- //
+   echo $e->responseText();
+   http_response_code(400);
  }
